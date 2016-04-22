@@ -1,0 +1,3901 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Laravel</title>
+
+       
+        <!-- include libraries(jQuery, bootstrap) -->
+        <link href="http://localhost/lyyti/lyyti/public/css/bootstrap.css" rel="stylesheet">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+        <script src="http://localhost/lyyti/lyyti/public/js/bootstrap.js"></script> 
+
+        <!-- include summernote css/js-->
+        <link href="http://localhost/lyyti/lyyti/public/css/sweetalert.css" rel="stylesheet">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+        
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+
+        <style>
+            html, body {
+                height: 100%;
+               
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                display: table;
+                font-family: 'Arial';
+                font-size: 10px;
+            }
+
+            .container {
+                background-color: #ddd;
+                margin-top: 48px;
+
+            }
+
+            .content {
+                padding: 26px;
+                text-align: left;
+                display: inline-block;
+                margin-top: 48px;
+                margin-bottom: 4px;
+                position: relative;
+            }
+
+            .title {
+                font-size: 96px;
+            }
+
+            p {
+                color: #333;
+            }
+
+            .documentheader {
+                z-index: 99999;
+                position: absolute;
+                top: -22px;
+                left: 0px;
+                font-size: 11px;
+                color: white;
+                background-color: #4C4F53;
+                padding: 3px; 
+                font-weight: bold;
+                display: none;
+            }
+
+            .openeditor {
+                z-index: 99999;
+                position: absolute;
+                top: -28px;
+                right: 0px;
+                color: white;
+                background-color: #AC5287;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                display: none;
+            }
+            .highlightinsert {
+                z-index: 99999;
+                position: absolute;
+                top: -28px;
+                right: 126px;
+                color: white;
+                background-color: #C26565;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                display: none;
+            }
+
+            .varita {
+                background-color: #C26565;
+                width: 100%;
+            }
+
+            #valmisbutton:hover{
+            	background-color: #71843F;
+            }
+            .riskitable tr td:nth-child(1) {
+                width: 30%;
+            }
+            .riskitable tr td:nth-child(2) {
+                width: 8%;
+                text-align: center;
+
+            }
+            .riskitable tr td:nth-child(3) {
+                width: 8%;
+                text-align: center;
+            }
+            .riskitable tr td:nth-child(4) {
+                width: 8%;
+                text-align: center;
+            }  
+
+
+
+
+            .riskitable2 tr td:nth-child(1) {
+                width: 30%;
+            }
+            .riskitable2 tr td:nth-child(2) {
+                width: 8%;
+                text-align: center;
+
+            }
+            .riskitable2 tr td:nth-child(3) {
+                width: 30%;
+                
+            }
+            .riskitable2 tr td:nth-child(4) {
+                width: 8%;
+                text-align: center;
+            } 
+            .riskitable2 tr td:nth-child(5) {
+                width: 8%;
+                text-align: center;
+            } 
+            .riskitable2 tr {
+                height: 40px;
+            }
+
+
+
+            .valintakohdetable tr {
+                height: 40px;
+            }
+
+            .valintakohdetable tr td:nth-child(1) {
+                width: 20%;
+            }
+            .valintakohdetable tr td:nth-child(2) {
+                width: 60%;
+            }
+            .valintakohdetable tr td:nth-child(3) {
+                width: 20%;
+            }               
+
+        </style>
+    </head>
+    <body>  
+        <!-- NEXT DOCUMENT STARTS -->
+            <div class="content tobesend" id="paihdeohjelma" data-fordocument="paihdeohjelma" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Päihdeohjelma</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+                <div class="contentforeditor"><p lang="en-GB">
+    <h1><span class="dynamicinsert">Nollaversio IT</span>:n päihdeohjelma</h1>
+</p>
+<p lang="fi-FI">
+    <strong>Periaatteet </strong>
+</p>
+<p lang="en-GB">
+    <a name="OLE_LINK3"></a>
+    <a name="OLE_LINK4"></a>
+    Me täällä yrityksessä <span class="dynamicinsert">Nollaversio IT</span> olemme sitoutuneet varmistamaan turvallisen, terveellisen ja tuottavan työpaikan jokaiselle työntekijällemme. Tätä tarkoitusta
+    varten on voimassa tämä päihdeohjelma. Päihdeohjelmaa laadittaessa on kuunneltu koko henkilöstöä ja annettu kaikille työntekijöille mahdollisuus
+    ilmaista näkemyksensä ja mielipiteensä.
+</p>
+<p lang="fi-FI">
+    Päihdeohjelmamme tavoitteena on tukea työntekijöiden työkykyä ja ehkäistä päihdehaittoja sekä ohjata tarkoituksenmukaiseen toimintaan
+    päihdehaittatilanteissa. Päihdeohjelmaa toteutetaan tiedotuksella, koulutuksella, valmennuksella sekä henkilöstön ja työterveyshuollon toimenpiteillä
+    samoin kuin suunnitelmallisella seurannalla ja arvioinnilla. Päihdeohjelma tulee saattaa jokaisen työntekijän tiedoksi.
+</p>
+<p lang="en-GB">
+    Päihteillä tässä tarkoitetaan kaikkia päihtymistarkoituksessa käytettyjä aineita. <span class="dynamicinsert">Nollaversio IT</span>:ssa ei työaikana ja työtehtävissä saa käyttää, pitää hallussa, jakaa
+    tai myydä alkoholia. <span class="dynamicinsert">Nollaversio IT</span>:ssa ei myöskään saa työskennellä eikä työpaikalla saa olla päihtyneenä. Huumeiden, lääkkeiden päihdekäytön, anabolisten steroidien
+    sekä muiden laissa kiellettyjen päihdyttävien aineiden ja lääkeaineiden laittoman käytön kielto koskee myös työpaikkaamme. Tupakoinnin suhteen noudatetaan
+    tupakkalakia ja sovittuja käytäntöjä (kirjaa käytäntö tähän).
+</p>
+<p lang="en-GB">
+    Päihdehaittatilanteella tarkoitetaan tilanteita, joissa alkoholin tai muun päihteen vaikutus uhkaa tai haittaa yksilön omaa tai toisen työntekijän työtä,
+    työkykyä, työturvallisuutta, työpaikan ilmapiiriä, työn tuloksia tai työnantajan mainetta.
+</p>
+<p lang="en-GB">
+    Päihdehaittojen ennaltaehkäisyn toimenpiteet, tiedotus, koulutus, valmennus ja seuranta, kuvataan alempana. Jos ennaltaehkäisystä huolimatta vapaa-ajan
+    päihdekäytön seurauksena työssä ilmenee ongelmia tai jos työpaikallamme on henkilö päihtyneenä, toimitaan alempana kuvattujen ohjeiden mukaisesti.
+</p>
+<p lang="fi-FI">
+    Jokainen työntekijä on ensisijaisesti itse vastuussa työkyvystään, mutta esimiehellä on vastuu ja velvollisuus määritellä työntekijöiden työkunto
+    työturvallisuuden näkökulmasta. Päihdeohjelmassa kuvataan kunkin toimijan vastuut ja tehtävät päihdehaittojen ehkäisyssä sekä seurantamenetelmät ja
+    seuraukset noudattamatta jättämisestä.
+</p>
+<p lang="fi-FI">
+    <span class="dynamicinsert">Nollaversio IT</span>:n periaate on, että päihdehaittatilanteissa asia käsitellään viipymättä, rakentavasti ja tasapuolisesti. Tämä edellyttää, että henkilöstölle ja
+    esimiehille järjestetään tiedotusta ja koulutusta alkoholiriskeistä työhyvinvoinnille sekä valmennusta, jotta kukin osaa toimia ohjeiden mukaan.
+</p>
+<p lang="fi-FI">
+    <strong>Päihdeohjelman kohde</strong>
+</p>
+<p lang="fi-FI">
+    <span class="dynamicinsert">Nollaversio IT</span>:ssa olemme tietoisia siitä, että alkoholin käyttö ja sen aiheuttamat haitat riskeeraavat työkykyä, työturvallisuutta ja työn tuloksia. Alkoholihaitat
+    voivat vaikuttaa kenen tahansa työhön missä tahansa työtehtävässä. Muiden päihteiden suhteen noudatetaan Suomen lakia ja tätä päihdeohjelmaa.
+</p>
+<p lang="fi-FI">
+    Päihdeohjelma koskee jokaista <span class="dynamicinsert">Nollaversio IT</span>:n työntekijää sekä soveltuvin osin alihankkijoita samoin kuin <span class="dynamicinsert">Nollaversio IT</span>:n alueella vierailevia henkilöitä. Päihdeohjelma koskee
+    myös etä- ja matkatöissä olevia kaikkialla, missä työnantajan työsuojeluvastuu on voimassa.
+</p>
+<p lang="fi-FI">
+    Työpaikan järjestämissä juhlatilaisuuksissa noudatetaan vastuullisen alkoholitarjoilun ohjeita. Työpaikan ulkopuolisissa työtehtävissä ja työmatkoilla
+    olemme työpaikkamme edustajia, mikä edellyttää asiallista ja vastuullista käyttäytymistä myös alkoholin suhteen.
+</p>
+<p lang="fi-FI">
+    Päihdeohjelman noudattaminen tarkoittaa tehtäviä ja vastuita, joiden toteutumista seurataan vuosittain kehityskeskusteluissa.
+</p>
+<p lang="fi-FI">
+    <strong>Päämäärä ja tavoitteet</strong>
+</p>
+<p lang="fi-FI">
+    Päihdeohjelman päämääränä on päihdehaitaton työpaikka. Tähän päästään seuraavien osatavoitteiden avulla:
+</p>
+<ul>
+    <li>
+        <p lang="fi-FI">
+            Ehkäisemme päihdehaittoja eli päihteistä aiheutuvia kielteisiä seurauksia työpaikalle ja yksilölle.
+        </p>
+    </li>
+    <li>
+        <p lang="en-GB">
+            Tuemme henkilöstöä välttämään alkoholin riskikäyttöä ja pysymään kohtuukäytössä tai raittiina sekä välttämään muiden päihteiden käyttöä.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Ohjeistamme päihdehaittojen ehkäisyn ja päihdeongelmiin puuttumisen käytännöt.
+        </p>
+    </li>
+</ul>
+<p lang="en-GB">
+    <strong>Vastuiden ja tehtävien tarkistuslistat</strong>
+</p>
+<p lang="fi-FI">
+    Kullekin työntekijäryhmälle on listattu omat vastuunsa ja tehtävänsä. Päihdeohjelman toteutumista ja siihen tehtäviä tarvittavia korjaustoimia
+    tarkastellaan esimiehen kanssa kehityskeskustelussa.
+</p>
+<p lang="en-GB">
+    <strong>Työnantajan edustajan vastuulla on</strong>
+</p>
+<ul>
+    <li>
+        <p lang="fi-FI">
+            nimittää päihdehaitattomasta työpaikasta vastaavat henkilöt (päihdetyöryhmä/ esimiehet) toimimaan päihdeohjelman toimeenpanossa
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            huolehtia, että
+        </p>
+        <ul>
+            <li>
+                <p lang="fi-FI">
+                    päihdeohjelma otetaan käyttöön ja juurrutetaan työpaikan käytäntöihin
+                </p>
+            </li>
+            <li>
+                <p lang="fi-FI">
+                    päihdehaittatilanteisiin puututaan välittömästi
+                </p>
+            </li>
+            <li>
+                <p lang="en-GB">
+                    päihdehaittatilanteita käsitellään luottamuksellisesti, kannustavasti ja tasapuolisesti
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            varmistaa, että
+        </p>
+        <ul>
+            <li>
+                <p lang="fi-FI">
+                    henkilöstö tuntee talon päihdeohjelman ja omat tehtävänsä siinä
+                </p>
+            </li>
+            <li>
+                <p lang="fi-FI">
+                    päihtyneen työntekijän tai päihdeongelmaisen työntekijän kanssa toimitaan ohjeiden mukaan
+                </p>
+            </li>
+            <li>
+                <p lang="fi-FI">
+                    työpaikan tilaisuuksissa noudatetaan vastuullisen alkoholitarjoilun ohjetta
+                </p>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            järjestää henkilöstölle koulutusta ja tiedotusta
+        </p>
+        <ul>
+            <li>
+                <p lang="fi-FI">
+                    päihteettömyyden ja alkoholin kohtuukäytön eduista työkyvyn ja hyvinvoinnin kannalta
+                </p>
+            </li>
+            <li>
+                <p lang="en-GB">
+                    alkoholin riskikäytön haitoista terveydelle, työkyvylle ja työturvallisuudelle
+                </p>
+            </li>
+        </ul>
+    </li>
+</ul>
+<p lang="en-GB">
+    – päihdeohjelman vastuiden edellyttämiin taitoihin
+</p>
+<ul>
+    <li>
+        <p lang="fi-FI">
+            tarjota työterveyshuollon kautta apua päihdeongelmiin
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            seurata ja arvioida
+        </p>
+        <ul>
+            <li>
+                <p lang="fi-FI">
+                    työoloja ja varmistaa, että ne eivät edesauta alkoholihaittoja työpaikalla
+                </p>
+            </li>
+            <li>
+                <p lang="fi-FI">
+                    tämän ohjelman toteutumista vähintään kahden vuoden välein yhteistyössä henkilöstön ja heidän edustajiensa kanssa.
+                </p>
+            </li>
+        </ul>
+    </li>
+</ul>
+<p lang="fi-FI">
+    <strong>Jokaisen työntekijän vastuulla on</strong>
+</p>
+<ul>
+    <li>
+        <p lang="fi-FI">
+            tulla töihin työkuntoisena
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            tehdä työnsä turvallisuusohjeita noudattaen
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            toimia työyhteisössään rakentavasti ja asiallisesti muita kohtaan
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            noudattaa sovittuja, päihteitä koskevia sääntöjä
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            hakea apua päihdeongelmiinsa
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            ilmoittaa työyhteisössään havaitsemistaan päihdehaitoista sovitulle taholle.
+        </p>
+    </li>
+</ul>
+<p lang="fi-FI">
+    <strong>Esimiesten vastuulla on</strong>
+</p>
+<ul>
+    <li>
+        <p lang="fi-FI">
+            tukea ja valvoa työn sujuvuutta ja henkilöstön työhyvinvointia ja työturvallisuutta
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            saattaa henkilöstö yhteisten sääntöjen taakse päihdeasioissa esim. A-Stepin avulla
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            rohkaista henkilöstöä pitämään huolta työkunnostaan
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            perehdyttää kaikki päihdeohjelmaan
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            ottaa päihteet puheeksi työhön perehdytyksessä ja kehityskeskusteluissa sekä säännöllisesti henkilöstötilaisuuksissa
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            puuttua viipymättä työkyvyn heikkenemiseen ja päihdehaittatilanteesiin
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            estää päihtyneenä/krapulaisena työskentely
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            ohjata työntekijä työterveyshuoltoon saamaan tarvittavaa hoitoa työkykynsä parantamiseksi
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            selvittää hoitoonohjauskokouksessa päihdehaittatilanne työyhteisön näkökulmasta
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            tehdä hoitositoumus hoitoonohjattavan kanssa
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            sopia tiedonkulusta hoitositoumuksen voimassaolon aikana
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            tukea työyhteisöä kriisitilanteiden jälkeen ja ohjata keskustelua opiksi ottamisen näkökulmaan
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            varmistaa, että työpaikan tilaisuuksissa alkoholitarjoilu on vastuullista ja noudattaa sovittuja rajoja.
+        </p>
+    </li>
+</ul>
+<p lang="fi-FI">
+    <strong>Työsuojeluhenkilöstön ja päihdetyöryhmän vastuulla on </strong>
+</p>
+<ul>
+    <li>
+        <p lang="fi-FI">
+            toimia yhteistyössä esimiesten ja työterveyshuollon kanssa päihdehaittojen ehkäisemiseksi ja poistamiseksi
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            kartoittaa työpaikan päihdeasioiden tilannetta eri lähteitä käyttäen (luettelo niistä)
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            suunnitella työpaikan päihdehaittojen ehkäisytoimia osana Työsuojelun toimintasuunnitelmaa, esimerkiksi:
+        </p>
+        <ul>
+            <li>
+                <p lang="fi-FI">
+                    toteuttaa koulutuksia, valmennuksia, tiedotustilaisuuksia
+                </p>
+            </li>
+            <li>
+                <p lang="fi-FI">
+                    järjestää esimiesten ja päihdetyöryhmän yhteistyökokouksia
+                </p>
+            </li>
+            <li>
+                <p lang="fi-FI">
+                    hyödyntää henkilöstön tiedotuskanavia
+                </p>
+            </li>
+            <li>
+                <p lang="fi-FI">
+                    järjestää tempauksia, kampanjoita ja toimintapäiviä esim. työsuojeluviikon ja
+                </p>
+            </li>
+        </ul>
+    </li>
+</ul>
+<p lang="en-GB">
+    Tipattoman tammikuun merkeissä
+</p>
+<ul>
+    <ul>
+        <li>
+            <p lang="fi-FI">
+                ehdottaa keinoja työhyvinvoinnin ja työilmapiirin tukemiseen
+            </p>
+        </li>
+    </ul>
+    <li>
+        <p lang="fi-FI">
+            jakaa esimiehille ja henkilöstölle tietoa työpaikan päihdeohjelmasta
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            tunnistaa päihdeongelmista viestittävät oireet ja riskit työpaikalla
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            tukea esimiehiä päihdeasioiden keskustelun käynnistämisessä työyhteisön kanssa
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            tehdä esimiehille toimenpide-ehdotuksia päihdehaittoja havaitessaan
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            valmentaa tarvittaessa esimiehiä päihdeongelman puheeksi ottamiseen
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            tukea hoitoonohjausprosessin toteutumista
+        </p>
+    </li>
+    <li>
+        <p lang="en-GB">
+            kokoontua 4–6 kertaa vuodessa Työsuojelun toimintasuunnitelman mukaisesti
+        </p>
+    </li>
+    <li>
+        <p lang="en-GB">
+            tehdä kokouksista muistiot tiedoksi työsuojeluryhmälle ja henkilöstölle
+        </p>
+    </li>
+    <li>
+        <p lang="en-GB">
+            seurata päihdehaittojen ehkäisytoimien toteutumista ja raportoida siitä työsuojeluryhmälle ja työnantajalle.
+        </p>
+    </li>
+</ul>
+<p lang="en-GB">
+    <strong>Työterveyshuollon vastuulla on </strong>
+</p>
+<ul>
+    <li>
+        <p lang="fi-FI">
+            tukea henkilöstömme päihteiden riskikäytön ennalta ehkäisyä ja hoitoa
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            antaa jokaiselle työntekijälle terveystarkastuksien yhteydessä tietoa alkoholinkäytön vaikutuksista terveyteen ja työkykyyn
+        </p>
+    </li>
+    <li>
+        <p lang="en-GB">
+            kysyä sairaanhoitovastaanotoilla myös alkoholinkäytöstä vähintään kerran vuodessa ja aina tiettyihin oireisiin liittyen
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            käydä sovituin välein henkilöstötilaisuuksissa puhumassa terveyttä edistävistä aiheista (tarkemmin TTH:n vuosisuunnitelmassa)
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            seuloa alkoholin riskikäyttöä AUDIT-testillä sekä tarjota ohjausta ja neuvontaa riskikäyttäjille
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            kerätä tietoa työpaikan alkoholitilanteesta (esim. haittakartoitus, AUDIT) ja antaa siitä palautetta vuosittain
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            osallistua työpaikan päihdetyöryhmän/päihdeyhdyshenkilöiden kokouksiin ja päihdehaittoja ehkäisevän koulutuksen toteutukseen (tietoiskut, luennot)
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            toimia hoitoonohjaustilanteissa asiantuntijana (hoitositoumus ja kuntoutussuunnitelma) ja tukea kuntoutujan paluuta työhön
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            toimia päihdekriisitilanteissa muun työyhteisön tukena.
+        </p>
+    </li>
+</ul>
+<p lang="fi-FI">
+    <strong>Toimintamallit:</strong>
+</p>
+<p lang="en-GB">
+    Päihdehaittatilanteissa on toimittava alla olevien ohjeiden mukaan ja työpaikan tilaisuuksissa vastuullisen alkoholitarjoilun ohjeen mukaan.
+</p>
+<p lang="fi-FI">
+    Näitä toimintamalleja noudatetaan ja ne ovat voimassa <span class="dynamicinsert">Nollaversio IT</span>:ssa:
+</p>
+<p lang="en-GB">
+    (lisää seuraaviin kohtiin ohjeet esim. Päihdeohjelmaoppaan s. 30–33 mukaan)
+</p>
+<p lang="fi-FI">
+    a) Työntekijä on huolissaan omasta päihteiden käytöstään
+</p>
+<p lang="fi-FI">
+    b) Työntekijä on huolissaan työtoverin työkunnosta
+</p>
+<p lang="fi-FI">
+    c) Alaiset ovat huolissaan esimiehen työkunnosta
+</p>
+<p lang="fi-FI">
+    d) Esimies on huolissaan alaisen työkunnosta
+</p>
+<p lang="fi-FI">
+    e) Työntekijä on päihtyneenä töissä
+</p>
+<p lang="fi-FI">
+    <strong>Tavoitteellisen puheeksiottokeskustelun ohje </strong>
+</p>
+<p lang="en-GB">
+    (esim. Päihdeohjelmaoppaan s. 34–36 mukaan)
+</p>
+<p lang="fi-FI">
+    <strong>Vastuullisen alkoholitarjoilun ohje</strong>
+</p>
+<p lang="fi-FI">
+    Alkoholin käyttö <span class="dynamicinsert">Nollaversio IT</span>:ssa työajalla ja työpaikalla ei ole sallittua. Joissakin työpaikan tilaisuuksissa esimiehen luvalla voidaan tarjoilla alkoholia. On
+    tärkeää huolehtia, että näistä tilanteista ei aiheudu haittaa kenellekään liiallisen alkoholin käytön vuoksi.
+</p>
+<p lang="en-GB">
+    Työnantajan ja esimiesten vastuulla on huolehtia turvallisuudesta myös silloin, kun työpaikan tilaisuudessa tarjotaan alkoholia. Mikäli näissä
+    tilaisuuksissa tapahtuu työkäyttäytymisen sääntöjen rikkomista, on esimiehen tehtävänä käydä tavoitteellinen puheeksiottokeskustelu vastaisuuden varalle
+    viimeistään viikon sisällä tapahtuneesta. Esimies kirjoittaa keskustelusta muistion (Lomake 1).
+</p>
+<p lang="fi-FI">
+    Seuraavat ohjeet auttavat ehkäisemään haittoja, mikäli työpaikan tilaisuudessa tarjotaan alkoholia:
+</p>
+<ul>
+    <li>
+        <p lang="fi-FI">
+            Tilaisuuden alku- ja loppuajankohta ilmoitetaan selvästi.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Huolehditaan, että tarjolla on monipuolinen ja runsas valikoima alkoholittomia juomia ja vain mietoja alkoholijuomia.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Suositellaan, että ihmiset nauttivat vaihdellen em. juomia.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Tilaisuuden aikana on ruokaa ja vähäsuolaista naposteltavaa riittävästi tarjolla.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Varmistetaan, että alkoholia tarjotaan selkeinä annoksina, jotta osallistujat voivat olla tietoisia juomistaan määristä.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Rajoitetaan tarjottavien alkoholiannosten määrä, esimerkiksi 2 annosta/henkilö.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Tilaisuuden järjestäjillä ja tarjoiluhenkilökunnalla tulee olla anniskelupassi tai alkoholitarjoilun koulutus.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Opastetaan nuoria/uusia työntekijöitä etukäteen.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Huolehditaan työntekijöiden kotimatkasta, mikäli he toivovat sitä.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Kieltäydytään tarjoilemasta alkoholia päihtyneelle henkilölle.
+        </p>
+    </li>
+    <li>
+        <p lang="fi-FI">
+            Pidetään tämä ohjeisto osana päihdeohjelmaa.
+        </p>
+    </li>
+</ul>
+<p lang="fi-FI">
+    <strong>Päihdeohjelman lomakkeet:</strong>
+</p>
+<p lang="fi-FI">
+    1. Muistio puheeksiottotilanteesta
+</p>
+<p lang="fi-FI">
+    2. Hoitositoumus
+</p>
+<p lang="fi-FI">
+    3. Kuntoutussuunnitelma
+</p>
+<p lang="fi-FI">
+    4. Varoitus päihteiden käytöstä
+</p>
+
+            </div>
+
+
+
+            </div>        <div id="paihdeohjelma_lomake1_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div>  
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="paihdeohjelma_lomake1" data-fordocument="paihdeohjelma_lomake1" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Lomake 1 (Muistio puheeksiottotilanteesta)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+
+                <div class="contentforeditor"><p lang="en-GB">      
+
+                <!-- COPY PASTE HERE -->    
+                <h4>Lomake 1. MUISTIO PUHEEKSIOTTOTILANTEESTA</h4>
+				<hr>
+				<p lang="fi-FI">
+				    <strong>Henkilön tiedot:</strong>
+				</p>
+				<p lang="en-GB">
+				    sukunimi ___________________  etunimi _________________
+				</p>
+				<p lang="en-GB">
+				    syntymäaika  ___________________  työtehtävä ___________________  
+				</p>
+				<p lang="fi-FI">
+				    osasto/yksikkö  ___________________  esimies ___________________  
+				</p>
+				<p lang="fi-FI">
+				    Olen osallistunut keskusteluun, jossa on käsitelty mahdollista päihdeongelmaani.
+				</p>
+				<p lang="fi-FI">
+				    Minulle on selvitetty työpaikan toimintatavat päihdeasioiden käsittelyssä sekä tarjottu mahdollisuus hakea apua ongelmaani työterveyshuollon kautta.
+				</p>
+				<p lang="fi-FI">
+				    Annan luvan toimittaa tämän muistion tässä asiakirjassa mainituille jakelun saajille.
+				</p>
+				<p lang="fi-FI">
+				    <strong>Keskustelun sisältö:</strong>
+				</p>
+				<p lang="en-GB">
+				    Työnantajan edustajan havainnot työssä esiintyneistä päihdehaitoista:
+				</p>
+				<br>
+				<p lang="en-GB">
+				    Henkilön oma käsitys päihdehaitoista:
+				</p>
+				<br>
+				<hr>
+				<p lang="en-GB">
+				    <strong>Sovitut toimenpiteet ja seuranta-aikataulu:</strong>
+				</p>
+				<p lang="fi-FI">
+				    <strong>Tukihenkilö:</strong>
+				</p>
+				<p lang="fi-FI">
+				    Nimi ___________________  Työtehtävä ______________________________  
+				</p> 
+				<p lang="fi-FI">
+				    Yhteystiedot ______________________________________________________
+				</p>
+				<p lang="fi-FI">
+				    <strong>Päiväys ja allekirjoitukset:</strong>
+				</p>
+				<p lang="fi-FI">
+				    Paikka ja aika
+				</p>
+				
+				<p lang="fi-FI">
+				    Henkilö___________________  Työnantajan edustaja ___________________ 
+				</p>
+				<hr>
+				<p lang="fi-FI">
+				    <strong>Seuranta:</strong>
+				</p>
+				<p lang="fi-FI">
+				    Päivämäärä, osallistujat ja toimenpiteiden toteutuminen
+				</p>
+
+				<p lang="fi-FI">
+				    <strong>Jakelu: Luottamuksellinen/arkistointi</strong>
+				</p>
+				<p lang="fi-FI">
+				    ___ asianomainen henkilö ___ tukihenkilö
+				</p>
+				<p lang="fi-FI">
+				    ___ työnantajan edustaja ___ luottamusmies
+				</p>
+				<p lang="fi-FI">
+				    ___ esimies ___ työterveyshuolto
+				</p>
+				<p lang="fi-FI">
+				    ___ yksikön päällikkö ___ henkilöstöhallinto
+				</p>  
+
+           		</div>
+            </div>
+        <div id="paihdeohjelma_lomake2_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div>  
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="paihdeohjelma_lomake2" data-fordocument="paihdeohjelma_lomake2" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Lomake 2 (Hoitositoumus)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+
+                <div class="contentforeditor"><p lang="en-GB">      
+
+                <!-- COPY PASTE HERE -->    
+				<h4>Lomake 2. HOITOSITOUMUS</h4>
+				<hr>
+
+				<p lang="fi-FI">
+				    <strong>Sopijaosapuolet:</strong>
+				</p>
+				<p lang="fi-FI">
+				    <strong>Henkilön tiedot</strong>
+				</p>
+				<p lang="en-GB">
+				    sukunimi____________________________ etunimi____________________________
+				</p>
+				<p lang="fi-FI">
+				    syntymäaika ____________________________työtehtävä____________________________
+				</p>
+				<p lang="fi-FI">
+				    osasto/yksikkö____________________________ esimies____________________________
+				</p>
+				<br>
+				<p lang="en-GB">
+				    <strong>Työnantajan edustaja _________________</strong>
+				    työtehtävä _________________ Osasto____________
+				</p>
+
+				<br>
+				<p lang="fi-FI">
+				    (Käsitelty = X)
+				</p>
+				<p lang="en-GB">
+				    ___ Lupaudun osallistumaan minulle työterveyshuollon kautta järjestettyyn kuntoutukseen suunnitelman mukaisesti ja noudattamaan hoitopaikan ohjeita.
+				</p>
+				<p lang="fi-FI">
+				    ___ Ilmoitan olevani tietoinen siitä, että mikäli en hyväksy hoitositoumusta tai en noudata kuntoutussuunnitelmaa tai päihteiden käyttöni jatkuu,
+				    käynnistetään työsopimuslain mukaiset seuraamukset (kirjallinen varoitus, työsuhteen päättäminen).
+				</p>
+
+				<p lang="en-GB">
+				    ___ Työterveyshuollolla on oikeus saada hoitopaikasta tiedot hoidon toteutumisesta ja kuntoutussuunnitelman noudattamisesta.
+				</p>
+				<p lang="en-GB">
+				    ___ Hoitopaikalla on oikeus ottaa yhteyttä työterveyshuoltoon hoidon toteutumisesta.
+				</p>
+				<p lang="en-GB">
+				    ___ Esimiehellä on oikeus saada tietää, toiminko kuntoutussuunnitelman mukaisesti.
+				</p>
+				<p lang="en-GB">
+				    ___ Työnantajalla on oikeus työpaikan vaihtamisen yhteydessä toimittaa tämä hoitositoumus sekä kuntoutussuunnitelma niiden voimassaoloaikana seuraavaan
+				    saman työnantajan työpaikkaan/yksikköön.
+				</p>
+				<p lang="en-GB">
+				    ___ Sopimuksen päättyessä järjestetään arviointineuvottelu esimiehen ja työterveyshuollon kanssa.
+				</p>
+				<p lang="en-GB">
+				    ___ Annan luvan toimittaa tämän sopimuksen tässä asiakirjassa mainituille jakelun saajille.
+				</p>
+				<p lang="en-GB">
+				    ___ Olemme sopineet, miten tilanteestani tiedotetaan lähimmille työtovereille:
+				</p>
+				<p lang="en-GB">
+				    (menettelytapa kirjoitetaan tähän) __________________________________________________________________ 
+				<p lang="en-GB">
+				    ______________________________________________________________
+				</p>
+				<p lang="en-GB">
+				    ___ Kieltäydyn hoitoonohjauksesta.
+				</p>
+				<br>
+				<p lang="en-GB">
+				    <strong>Seurantakokousten ajankohdat: </strong>
+				</p>
+				<p lang="fi-FI">
+				    <strong>Sopimuksen voimassaolo: </strong>
+				</p>
+				<p lang="fi-FI">
+				    Hoitositoumus on voimassa ___ kuukautta allekirjoittamispäivämäärästä.
+				</p>
+				<hr>
+				<p lang="fi-FI">
+				    <strong>Päiväys ja allekirjoitukset:</strong>
+				</p>
+				<p lang="fi-FI">
+				    Paikka ja aika
+				</p>
+				<p lang="fi-FI">
+				    Henkilö____________________________ Työnantajan edustaja_________________________
+				</p>
+				<p lang="fi-FI">
+				    Luottamusmies (tarvittaessa)______________________ Muistion kirjoittaja__________________
+				</p>
+				<p lang="fi-FI">
+				    <strong>Jakelu:</strong>
+				</p>
+				<p lang="fi-FI">
+				    ___ Sopijaosapuolet ___ Esimies
+				</p>
+				<p lang="fi-FI">
+				    ___ Yksikön päällikkö ___ Tukihenkilö
+				</p>
+				<p lang="fi-FI">
+				    ___ Luottamusmies ___ Työterveyshuolto
+				</p>
+				<p lang="en-GB">
+				    ___ ___________
+				</p>
+				<p lang="fi-FI">
+				    <strong>Liitteet:</strong>
+				</p>
+				<p lang="fi-FI">
+				    Kuntoutussuunnitelma
+				</p>
+
+           		</div>
+            </div>        <div id="paihdeohjelma_lomake3_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div>  
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="paihdeohjelma_lomake3" data-fordocument="paihdeohjelma_lomake3" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Lomake 3 (Kuntoutussuunnitelma)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                           
+                <div class="contentforeditor"><p lang="en-GB">      
+
+                <!-- COPY PASTE HERE -->    
+				<h4>Lomake 3. KUNTOUTUSSUUNNITELMA</h4>
+				<hr>
+				<p lang="fi-FI">
+				    <strong>Henkilön tiedot</strong>
+				</p>
+				<p lang="en-GB">
+				    sukunimi____________________________ etunimi____________________________
+				</p>
+				<p lang="en-GB">
+				    syntymäaika____________________________ työtehtävä____________________________
+				</p>
+				<p lang="fi-FI">
+				    osasto/yksikkö____________________________ esimies____________________________
+				</p>
+				<p lang="fi-FI">
+				    Kuntoutussuunnitelma perustuu työkyvyn arviointiin.
+				</p>
+				<p lang="fi-FI">
+				    <strong>Kuntoutussuunnitelman sisältö:</strong>
+				</p>
+				<p lang="fi-FI">
+				    Käynnit avohoidossa 
+				    <ul>
+					    <li>Hoitopaikka ______________</li>
+					    <li>Hoitoaika _______________</li>
+					    <li>Käyntien tiheys _____</li>
+				    </ul>
+				</p>
+				<p lang="fi-FI">
+				    Laitoshoito
+				     <ul>
+					    <li>Hoitopaikka ______________</li>
+					    <li>Hoitoaika _______________</li>
+
+				    </ul>
+				</p>
+				<p lang="fi-FI">
+				    Käynnit vertaistukiryhmissä
+				    <ul>
+					    <li>Hoitoaika ______________</li>
+					    <li>Käyntien tiheys __________</li>
+
+				    </ul>
+				</p>
+				<p lang="fi-FI">
+				    Käynnit tukihenkilön tykö
+				    <ul>
+					    <li>Kesto ______________</li>
+					    <li>Käyntien tiheys __________</li>
+
+				    </ul>
+				</p>
+				<p lang="fi-FI">
+				    Käynnit työterveyshuollossa
+				    <ul>
+					    <li>Kesto ______________</li>
+					    <li>Käyntien tiheys __________</li>
+
+				    </ul>
+				</p>
+				<p lang="fi-FI">
+				    Muu tukitoiminta
+				    <ul>
+					    <li>Mitä _________________________</li>
+					    <li>Kesto __________</li>
+					    <li>Tiheys __________</li>
+
+				    </ul>
+				</p>				
+				<br>
+				<p lang="en-GB">
+				    <strong>Seuranta- ja tukihenkilöt:</strong>
+				</p>
+				<p lang="fi-FI">
+				    Työterveyslääkäri__________________________ Puh.__________________________
+				</p>
+				<p lang="fi-FI">
+				    Työterveyshoitaja__________________________ Puh.__________________________
+				</p>
+				<p lang="fi-FI">
+				    Tukihenkilö__________________________Puh.__________________________
+				</p>
+				<p lang="fi-FI">
+				    Muu__________________________ Puh.__________________________
+				</p>
+				<hr>
+				<p lang="fi-FI">
+				    <strong>Päiväys ja allekirjoitukset:</strong>
+				</p>
+				<p lang="fi-FI">
+				    Paikka ja aika
+				</p>
+				<br>
+				<p lang="fi-FI">
+				    Henkilö______________________ <span style="position: relative;">Työterveyshuollon edustaja______________________<span style="position: absolute; font-size: 11px; left: 0px; top: 22px;"><i>nimen selvennys ja virka-asema: </i></span></span>
+				</p>
+				<br>
+				<hr>
+				<p lang="fi-FI">
+				    
+				</p>
+
+           		</div>
+            </div>        <div id="paihdeohjelma_lomake4_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div>  
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="paihdeohjelma_lomake4" data-fordocument="paihdeohjelma_lomake4" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Lomake 4 (varoitus päihteiden käytöstä)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+
+                <div class="contentforeditor">    
+					<h4>Lomake 4. VAROITUS PÄIHTEIDEN KÄYTÖSTÄ </h4>
+					<hr>
+					<p lang="fi-FI">
+					    <strong>Henkilön tiedot:</strong>
+					</p>
+					<p lang="en-GB">
+					    sukunimi____________________________ etunimi____________________________
+					</p>
+					<p lang="en-GB">
+					    syntymäaika____________________________ työtehtävä____________________________
+					</p>
+					<p lang="fi-FI">
+					    osasto/yksikkö____________________________ esimies____________________________
+					</p>
+
+					<p lang="en-GB">
+					    <strong>Työnantajan edustaja:____________</strong>
+					    Tehtävä: _________________ Osasto:______________
+					</p>
+					<br>
+					<p lang="fi-FI">
+					    Työntekijä saa varoituksen päihteiden käytöstä.
+					</p>
+					<p lang="fi-FI">
+					    Työntekijälle on selvitetty, mihin hallinnollisiin toimenpiteisiin päihteiden käytöstä johtuvat ongelmat työpaikalla jatkossa todennäköisesti johtavat.
+					</p>
+					<p lang="fi-FI">
+					    Samalla on tehty hoitositoumus tai selvitetty sopimuksen tekemisen edellytykset.
+					</p>
+					<p lang="fi-FI">
+					    Varoitukseen johtaneet seikat:
+					</p>
+					<br>
+					<hr>
+					<p lang="fi-FI">
+					    <strong>Päiväys ja allekirjoitukset:</strong>
+					</p>
+					<p lang="fi-FI">
+					    Paikka ja aika ____________________________
+					</p>
+					<p lang="fi-FI">
+					    Työnantajan edustaja __________________________
+					</p>
+					<p lang="fi-FI">
+					    Olen vastaanottanut tämän varoituksen ja saanut kaksoiskappaleen siitä.
+					</p>
+					<p lang="fi-FI">
+					    Paikka ja aika __________________________
+					</p>
+					<p lang="fi-FI">
+					    Työntekijä _________________________________
+					</p>
+					<p lang="fi-FI">
+					    <strong>Tiedoksi:</strong>
+					</p>
+					<p lang="fi-FI">
+					    työterveyshuolto ___
+					</p>
+					<p lang="fi-FI">
+					    henkilöstöhallinto ___
+					</p>
+
+           		</div>
+            </div>
+
+        <div id="tyosuojelu_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div>  
+        <div class="content tobesend" id="tyosuojelu" data-fordocument="tyosuojelu" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Työsuojelu</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+                <div class="contentforeditor">
+
+                    <h1>Työsuojelun toimintaohjelma</h1>
+
+
+                    <h3><span class="dynamicinsert">Nollaversio IT</span></h3>
+                    <hr>
+
+                    <h4>Työsuojelun tavoitteet</h4><p>
+                    Taata työntekijöille terveelliset ja turvalliset työolosuhteet ja ennaltaehkäistä työstä ja työympäristöstä johtuvia henkisiä ja fyysisiä terveyden haittoja. Ylläpitää ja edistää työntekijöiden henkistä ja fyysistä terveyttä.
+                    Konkreettisina tavoitteina ovat mm. sairauspoissaolojen vähäisyys, persoonan ja työtehtävän kannalta sopivien työolosuhteiden ja työtehtävien tarjoaminen sekä liikuntaan kannustavan ilmapiirin luominen.
+                    </p>
+                    <h4>Työsuojelun vastuut ja toimivaltuudet</h4><p>
+                    Työpaikan ja työympäristön työturvallisuudesta vastaa työnantaja. Työnantajan/ylimmän johdon vastuulla on luoda perusta työsuojeluasioiden hoitamiselle ja valvoa työsuojelutoimintaa
+                    Työntekijöiden velvollisuus on noudattaa annettuja työ- ja toimintaohjeita. Työntekijöillä on oikeus tehdä työpaikan turvallisuutta ja terveellisyyttä koskevia ehdotuksia työnantajalle ja saada niistä palautetta.
+                    </p>
+                    <h4>Työympäristön kuvaus</h4><p>
+                    Työtä tehdään kahdessa avotilassa ja muutamissa kahden hengen huoneissa. Lisäksi yksi työntekijä tekee osan viikosta etätyötä kotoaan. Työ on osalla henkilöstöä näyttöpäätetyötä ja osalla matkustamista (koulutuksiin ja esittelyihin liittyen) sekä näyttöpäätetyötä.
+                    Työn vaaroja ja riskejä on arvioitu työterveyshuollon työpaikkaselvityksessä <span class="dynamicinsert">27.03.2015</span>. Lähitulevaisuudessa tullaan tekemään työpaikan työsuojeluyhteistoiminnan edustajien toimesta Työturvallisuuslain mukainen työn vaarojen selvittäminen ja arviointi.
+                    </p>
+                    <h4>Työ- ja turvallisuusohjeet</h4><p>
+                    Työpaikan turvallisuusohjeet, päihdeohjelmaohje/-lomake sekä työterveyshuollon ohjeet löytyvät koko henkilöstölle pilvipalvelussa jaetusta ”Työsuojelu ja työterveys” –kansiosta sekä paperisena <span class="dynamicinsert">Bulevardi 7, 00100 Helsinki</span> toimiston isosta avotilasta kansiosta ”Työsuojelu & työterveys”.
+                    </p>
+                    <h4>Työsuojelun kehittämiskohteet</h4><p>
+                    <span class="dynamicinsert">27.03.2015</span> tehdyn työterveyshuollon työpaikkaselvityksen mukaan tärkeimmät kehittämiskohteet olivat työergonomia, valaistus sekä työn terveellinen tauottaminen. Valaistusta on parannettu ja työfysioterapeutin ohjeita on otettu käyttöön. Jatkossa kehittämiskohteena on mm. taukojumppailuun kannustaminen ja ohjaaminen.
+                    </p>
+                    
+
+                    <h4>Työsuojelun yhteistoiminta</h4><p>
+                    Työnantaja on valinnut edustajakseen työsuojelun yhteistoimintaan työsuojelupäällikön ja työntekijät työsuojeluvaltuutetun sekä kaksi varavaltuutettua. Työntekijät ovat työnantajan kanssa yhteistoiminnassa suoraa työsuojelupäällikön kautta tai välillisesti työsuojeluvaltuutetun kautta, joka on yhteydessä työsuojelupäällikköön.
+                    </p>
+                    <h4>Työterveyshuolto</h4><p>
+                    Työterveyshuollon palveluntuottajana toimii <span class="dynamicinsert">Lääkäriasema Mehiläinen (Kaarina)</span>. Yhdessä palveluntuottajan kanssa on luotu työterveyshuollon toimintasuunnitelma. Työntekijät saavat lakisääteisen terveydenhuollon <span class="dynamicinsert">Lääkäriasema Mehiläinen (Kaarina)</span>:lta. Lisäksi yritys on ottanut yhtiöstä <span class="dynamicinsert">Lähi-Tapiola Oy</span> vapaaehtoisen sairaanhoitovakuutuksen, joka korvaa työntekijöiden yleis- ja erikoislääkäritason hoito- ja tutkimuskustannuksia.
+                    </p>
+                    <h4>Työsuojeluasioiden huomiointi toiminnassa</h4><p>
+                    Työsuojeluvaltuutettu käyttää 4 tuntia per 4 kalenteriviikkoa työsuojeluasioiden hoitoon. Neljännesvuosittaisissa koko yritystä koskevassa palaverissa käydään läpi työsuojelun tehdyt ja tulevat toimenpiteet.
+                    </p>
+                    <h4>Työolojen seuranta  </h4><p>
+                    <span class="dynamicinsert">Lääkäriasema Mehiläinen (Kaarina)</span> pitää kirjaa sairauspoissaoloista. Esille tulevat työn vaarat ja riskit dokumentoidaan, jatkossa dokumentointi suoritetaan riskienarviointilomakkeille työsuojeluvaltuutetun toimesta. Työntekijöiden mielipiteistä koskien työoloja pyritään olemaan jatkuvasti selvillä luomalla avoin vuorovaikutussuhde työnantajan ja työntekijän välille. 
+                    </p>
+                    <h4>Toimintaohjelman seuranta ja päivitys</h4><p>
+                    Työsuojelupäällikkö vastaa toimintaohjelman seurannasta. Työsuojelupäällikön toimesta työsuojelun toimintaohjelma päivitetään vuosittain tai tarpeen vaatiessa useammin.
+                    </p>
+
+                    <span class="font-style: italic;">
+                    Päiväys: 18.04.2016</span>
+            </div>
+
+
+
+</div>
+        <div id="riskiarvio_kohdevalinta_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div> 
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="riskiarvio_kohdevalinta" data-fordocument="riskiarvio_kohdevalinta" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Riskien arviointikohteiden valinta</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+            
+                <div class="contentforeditor">
+                <h5 style="text-align: right;">Riskien arviointikohteiden valinta</h5>
+                    <p lang="fi-FI">
+                        Yritys: <span class="dynamicinsert">Nollaversio IT</span>                    </p>
+                    <p lang="fi-FI">
+                        Arvioinnin kohde: Kaikki osastot (asiakaspalvelu, myynti, tuotekehitys, koulutus, talous)
+                    </p>
+                    <p lang="fi-FI">
+                        Päiväys: <span class="dynamicinsert">18.04.2016</span>                    </p>  
+                    <p lang="fi-FI">
+                        Osastot/yksiköt: kaikki
+                    </p>  
+                    <p lang="fi-FI">
+                        Tekijät: Työsuojeluvaltuutettu <span class="dynamicinsert">Jaakko Mehiläinen</span>, työsuojeluvaravaltuutettu <span class="dynamicinsert">Maija Kimalainen</span>                    </p>  
+
+                    <table class="table table-bordered valintakohdetable">
+                        <thead>
+                            <tr> 
+                                <th>Arvioinnin kohde </th>
+                                <th>Tarkennuksia (esim. kohteen kuvaus, arviointiin osallistuvat tahot, vastuutaho, erityisriskit, yms.)</th>
+                                <th>Aikataulu</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>                             
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                           
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+
+                        </tbody>
+                    </table> 
+
+                    <p><strong>Muita kommentteja riskien arvioinnin toteuttamisesta:</strong>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br><br>
+                    <br>
+                    </p>
+
+
+
+
+
+                </div>
+            </div>        <div id="riskiarvio_suunnittelu_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div> 
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="riskiarvio_suunnittelu" data-fordocument="riskiarvio_suunnittelu" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Riskien arvioinnin suunnittelu</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+
+                <div class="contentforeditor">
+                <h5 style="text-align: right;">Riskien arvioinnin suunnittelu</h5>
+                    <p lang="fi-FI">
+                        Yritys: <span class="dynamicinsert">Nollaversio IT</span>                    </p>
+                    <p lang="fi-FI">
+                        Arvioinnin kohde: Kaikki osastot (asiakaspalvelu, myynti, tuotekehitys, koulutus, talous)
+                    </p>
+                    <p lang="fi-FI">
+                        Päiväys: <span class="dynamicinsert">18.04.2016</span>                    </p>  
+                    <p lang="fi-FI">
+                        Tekijät: Työsuojeluvaltuutettu <span class="dynamicinsert">Jaakko Mehiläinen</span>, työsuojeluvaravaltuutettu <span class="dynamicinsert">Maija Kimalainen</span>                    </p>  
+                    <hr>
+                    <h4>Selvitettävät asiat</h4>
+
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Lähtötiedot</div>
+                      <div class="panel-body">
+                        <i>Aiemmin tehdyt selvitykset, mittaukset, kartoitukset, niiden dokumentit, vastuu-henkilöt</i>
+                        <p>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        </p>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Johdon sitoutuminen</div>
+                      <div class="panel-body">
+                        <i>Miten varmistetaan ylimmän johdon sitoutuminen riskien arviointiin?</i>
+                        <br>------------
+                        <p>
+                        Yrityksen ylin johto on mukana riskien arvioinnin suunnittelussa ja arviointikohteiden valinnassa.
+                        
+                        </p>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Arvioinnin kohteet</div>
+                      <div class="panel-body">
+                        <i>Osastokohtainen jako, tai jako työpisteisiin, työryhmiin, työtehtäviin tai ammat-tinimikkeisiin </i>
+                        <br>------------
+                        <p>
+                        Arvioidaan osastoittain työntekijöiden työolosuhteet. Osastoittainen jako on: asiakaspalvelu, myynti, tuotekehitys, koulutus, talous. Kiinnitetään erityishuomiota työn erityispiirteisiin, kuten työn sosiaalisuus, kiireellisyys ja matkustustyö. Lisäksi huomioidaan etätyön tuomat erityispiirteet.
+                        
+                        </p>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Arviointiryhmä</div>
+                      <div class="panel-body">
+                        <i>Kokoonkutsuja, arviointiryhmän jäsenet</i>
+                        <br>------------
+                        <p>
+                        Kokoonkutsuja: <span class="dynamicinsert">Jaakko Mehiläinen</span>                        <br>
+                        Arviointiryhmän jäsenet: <span class="dynamicinsert">Jaakko Mehiläinen</span> , <span class="dynamicinsert">Maija Kimalainen</span>                        <br>
+                        
+                        </p>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Koulutus</div>
+                      <div class="panel-body">
+                        <i>Koulutustarve, kouluttajat, aikataulu, vastuuhenkilö</i>
+                        <br>------------
+                        <p>
+                        Työn luonne ja työolosuhteet huomioon ottaen on työsuojelun yhteistoiminnassa päädytty itsenäisen kouluttautumisen periaatteeseen. Työsuojeluvaltuutetun tai varavaltuutettujen niin halutessa on tarjolla myös ulkoisen koulutuksen mahdollisuus. Työsuojelupäällikkö ottaa vastuun työsuojeluvaltuutetun ajan käytöstä. Alkuun 6h per 4 kalenteriviikkoa, jotta työsuojeluvaltuutettu kykenee alkaneiden jatkuvien työsuojelutehtäviensä lisäksi keskittymään myös itsensä kouluttautumiseen. Tämän jälkeen 4h per 4 kalenteriviikkoa. Työsuojeluvaltuutettu kouluttaa varavaltuutettuja.
+                        
+                        </p>
+                      </div>
+                    </div>   
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Henkilöstön osallistuminen</div>
+                      <div class="panel-body">
+                        <i>Miten henkilöstön osallistuminen riskien arviointiin varmistetaan?</i>
+                        <br>------------
+                        <p>
+                        Haastatellaan henkilöstöä. Haastatteluiden perusteella kirjataan vaaratilanteita, riskejä ja toimenpiteitä.
+                        
+                        </p>
+                      </div>
+                    </div>    
+                   <div class="panel panel-default">
+                      <div class="panel-heading">Käytettävät menetelmät</div>
+                      <div class="panel-body">
+                        <i>Eri kohteissa käytettävät menetelmät, vastuuhenkilö</i>
+                        <br>------------
+                        <p>
+                        Arviointiryhmän jäsenet haastattelevat henkilöstöä yksi kerrallaan. Haastattelun rakenne on vapaamuotoinen, mutta sisältää myös johdannon erityyppisiin riskeihin. Arviointiryhmän jäsenet sisällyttävät myös omat näkemyksensä arvioihin.
+                        
+                        </p>
+                      </div>
+                    </div>  
+                   <div class="panel panel-default">
+                      <div class="panel-heading">Tiedottaminen</div>
+                      <div class="panel-body">
+                        <i>Miten riskien arvioinnista tiedotetaan työpaikalla arvioinnin alussa, arvioinnin aikana ja arvioinnin valmistuttua? Vastuuhenkilö? </i>
+                        <br>------------
+                        <p>
+                        Henkilöstö on mukana riskien arvioinnissa haastatteluiden kautta ja saavat arvioinnin valmistuttua. Henkilöstöllä on myös mahdollisuus lukea ja jatkuvasti täydentää valmistunutta arviointia, kuten jäljempänä kohdassa ”Seuranta” mainitaan.
+                        
+                        </p>
+                      </div>
+                    </div>   
+                   <div class="panel panel-default">
+                      <div class="panel-heading">Raportointi</div>
+                      <div class="panel-body">
+                        <i>Miten arvioinnin tulokset dokumentoidaan ja raportoidaan yrityksen johdolle? Vastuuhenkilö?</i>
+                        <br>------------
+                        <p>
+                        Arviointiryhmä muodostaa lopulliset dokumentit riskiarvioista ja toimenpiteistä riskilajeittain. Dokumentit toimitetaan työsuojelupäällikölle, joka raportoi muulle johdolle.
+                        
+                        </p>
+                      </div>
+                    </div>                   
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Toimenpiteiden toteuttaminen</div>
+                      <div class="panel-body">
+                        <i>Miten varmistetaan toimenpiteiden vieminen käytäntöön? Vastuutahot?</i>
+                        <br>------------
+                        <p>
+                        Arviointiryhmä määrittelee dokumenteille vastuuhenkilöt ja tavoiteaikataulut.
+                        
+                        </p>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Seuranta</div>
+                      <div class="panel-body">
+                        <i>Miten riskien arvioinnin tuloksia seurataan? Arvioinnin ylläpito ja vastuutahot?</i>
+                        <br>------------
+                        <p>
+                        Työsuojeluvaltuutettu seuraa neljän viikon välein tuloksia ja on tarvittaessa yhteydessä vastuuhenkilöihin. Riskien arviointilomakkeet saatetaan koko henkilöstön saataville toimitiloihin <span class="dynamicinsert">Bulevardi 7, 00100 Helsinki</span>. Henkilöstö voi vapaasti kirjata omia havaintojaan vaaratilanteista tai mahdollisista vaaratilanteista, niiden todennäköisyydestä sekä mahdollisista toimenpiteistä, joilla voidaan vähentää riskiä tai poistaa riski.
+                        </p><p>
+                        Vuoden välein suoritetaan työn vaarojen selvittäminen ja arviointi. Vastuuhenkilönä toimii työsuojelupäällikkö.
+                        
+                        </p>
+                      </div>
+                    </div> 
+                  </div> 
+              </div>                      <div id="riskiarvio_ergonomia_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div> 
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="riskiarvio_ergonomia" data-fordocument="riskiarvio_ergonomia" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Riskiarvio (ergonomia)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+            
+                <div class="contentforeditor">
+                <h5 style="text-align: right;">VAAROJEN TUNNISTAMINEN</h5>
+                    <p lang="fi-FI">
+                        <strong>ERGONOMIA (E)</strong>
+                    </p>
+                    <p lang="fi-FI">
+                        Yritys: <span class="dynamicinsert">Nollaversio IT</span>                    </p>
+                    <p lang="fi-FI">
+                        Arvioinnin kohde: Kaikki osastot (asiakaspalvelu, myynti, tuotekehitys, koulutus, talous)
+                    </p>
+                    <p lang="fi-FI">
+                        Päiväys: <span class="dynamicinsert">18.04.2016</span>                    </p>  
+                    <p lang="fi-FI">
+                        Tekijät: Työsuojeluvaltuutettu <span class="dynamicinsert">Jaakko Mehiläinen</span>, työsuojeluvaravaltuutettu <span class="dynamicinsert">Maija Kimalainen</span>                                            </p>  
+
+                    <table class="table table-condensed table-bordered riskitable">
+                        <thead>
+                            <tr> 
+                                <th> Vaararyhmät </th>
+                                <th>Aiheuttaa vaaraa/haittaa</th>
+                                <th>Ei vaaraa/haittaa</th>
+                                <th>Ei tietoa</th>
+                                <th>Kommentit/tarkennukset</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>                             
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Työpiste</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td>E1. Työpisteet siisteys ja järjestelyt</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E2. Kulkutiet, uloskäytävät ja pelastustiet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E3. Portaat, tikapuut ja luiskat</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E4. Työskentelytason korkeus</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E5. Istuin</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E6. Näytöt ja näyttöpäätteet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                                                      <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Työasento</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+
+                            <tr>
+                                
+                                <td>E7. Selän asento</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E8. Hartioiden ja käsien asento</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E9. Ranteen ja sormien asento</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E10. Pään ja niskan asento</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E11. Jalkojen asento</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>                          <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Ruumiillinen kuormitus</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+
+                            <tr>
+                                
+                                <td>E12. Jatkuva istuminen tai seisominen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E13. Työn tauotus ja työtahti</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E14. Jatkuvasti samana toistuvan työliikkeet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E15. Raskaat nostot ja taakan kannattelu</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>                          <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Työvälineet ja -menetelmät</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+
+                            <tr>
+                                
+                                <td>E16. Työkalut, koneet ja laittet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E17. Käsiteltävät kappaleet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E18. Työpisteen tuet ja apuvälineet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>                          <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Työn muunneltavuus</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+  
+                            <tr>
+                                
+                                <td>E19. Työtilan riittävyys</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>E20. Mahdollisuus vaihdella työasentoja</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                                                      <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Muita mahdollisia vaaratekijöitä?</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                             
+ 
+                             
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+
+
+                        </tbody>
+                    </table> 
+
+                    <p>
+                        <strong>Lisätietoja:</strong>
+                        <br>
+                        <br>
+                    </p>    
+ 
+                    <hr>
+                    <hr>
+                    <h5 style="text-align: right;">TOIMENPIDELOMAKE</h5>
+                    <p lang="fi-FI">
+                        <strong>TYÖN ERGONOMIA (E)</strong>
+                    </p>                    
+                    <table class="table table-bordered riskitable2">
+                        <thead>
+                            <tr> 
+                                <th>Vaaratilanteen kuvaus </th>
+                                <th>Riski (kts. taulukko)</th>
+                                <th>Toimenpiteet</th>
+                                <th>Vastuuhenkilö</th>
+                                <th>Aikataulu</th>
+                                <th>OK</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+ 
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                               
+
+                        </tbody>
+
+
+                    </table>
+                    <hr>
+                    <p><strong>Riskinumeroiden merkitykset</strong> (todennäköisyys = pysty, seurauksen vakavuus = vaaka)</p>
+                    <table class="table table-condensed table-bordered" style="width: 40%;">
+                        <tbody> 
+                            <tr>
+                                <td></td>
+                                <td><strong>Vähäiset</strong></td>
+                                <td><strong>Haitalliset</strong></td>
+                                <td><strong>Vakavat</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Epätodennäköinen</strong></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mahdollinen</strong></td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>   
+                            <tr>
+                                <td><strong>Todennäköinen</strong></td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>                               
+                        </tbody>
+                        
+                    </table>
+
+                    <p style="font-size: 10px; font-style: italic;">
+                    1 = merkityksetön, 2 = vähäinen, 3 = kohtalainen, 4 = merkittävä, 5 = sietämätön
+                    </p>
+
+
+
+
+                </div>
+            </div>           <div id="riskiarvio_fysikaaliset_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div> 
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="riskiarvio_fysikaaliset" data-fordocument="riskiarvio_fysikaaliset" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Riskiarvio (fysikaaliset)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+            
+                <div class="contentforeditor">
+                <h5 style="text-align: right;">VAAROJEN TUNNISTAMINEN</h5>
+                    <p lang="fi-FI">
+                        <strong>FYSIKAALISET VAARATEKIJÄT (F)</strong>
+                    </p>
+                    <p lang="fi-FI">
+                        Yritys: <span class="dynamicinsert">Nollaversio IT</span>                    </p>
+                    <p lang="fi-FI">
+                        Arvioinnin kohde: Kaikki osastot (asiakaspalvelu, myynti, tuotekehitys, koulutus, talous)
+                    </p>
+                    <p lang="fi-FI">
+                        Päiväys: <span class="dynamicinsert">18.04.2016</span>                    </p>  
+                    <p lang="fi-FI">
+
+                        Tekijät: Työsuojeluvaltuutettu <span class="dynamicinsert">Jaakko Mehiläinen</span>, työsuojeluvaravaltuutettu <span class="dynamicinsert">Maija Kimalainen</span>                                            </p>  
+
+                    <table class="table table-condensed table-bordered riskitable">
+                        <thead>
+                            <tr> 
+                                <th> Vaararyhmät </th>
+                                <th>Aiheuttaa vaaraa/haittaa</th>
+                                <th>Ei vaaraa/haittaa</th>
+                                <th>Ei tietoa</th>
+                                <th>Kommentit/tarkennukset</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Melu</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td>F1. Jatkuva melu</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>F2. Iskumelu</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                             
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Lämpötila ja ilmanvaihto</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td>F3. Työpaikan lämpötila</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>  <tr>
+                                
+                                <td>F4. Yleisilmanvaihto ja kohdepoistot</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>F5. Vetoisuus</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>F6. Kylmät tai kuumat esineet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>F7. Työskentely ulkotiloissa</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>                              
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>    
+                            
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Valaistus</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td>F8. Yleisvalaistus</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>F9. Kohdevalaistus työpisteissä</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>F10. Kulkuteiden turva- ja merkkivalaistus</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>F11. Ulkovalaistus</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+
+                                                         
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Tärinä</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td>F12. Käsiin kohdistuva tärinä</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> <tr>
+                                
+                                <td>F13. Koko kehoon kohdistuva tärinä </td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>                            
+                           
+                                                          
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Säteilyt</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td>F14. Ionisoiva säteily</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> <tr>
+                                
+                                <td>F15. UV-säteily</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>  <tr>
+                                
+                                <td>F16. Lasersäteily</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>  <tr>
+                                
+                                <td>F17. Infrapunasäteily</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>  <tr>
+                                
+                                <td>F18. Mikroaallot</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>  <tr>
+                                
+                                <td>F19. Sähkömagneettiset kentät</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Muita mahdollisia vaaratekijöitä?</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                             
+ 
+                             
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+
+
+                        </tbody>
+                    </table> 
+
+                    <p>
+                        <strong>Lisätietoja:</strong>
+                        <br>
+                        <br>
+                    </p>    
+ 
+                    <hr>
+                    <hr>
+                    <h5 style="text-align: right;">TOIMENPIDELOMAKE</h5>
+                    <p lang="fi-FI">
+                        <strong>FYSIKAALISET VAARAT (F)</strong>
+                    </p>                    
+                    <table class="table table-bordered riskitable2">
+                        <thead>
+                            <tr> 
+                                <th>Vaaratilanteen kuvaus </th>
+                                <th>Riski (kts. taulukko)</th>
+                                <th>Toimenpiteet</th>
+                                <th>Vastuuhenkilö</th>
+                                <th>Aikataulu</th>
+                                <th>OK</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+ 
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                               
+
+                        </tbody>
+
+
+                    </table>
+                    <hr>
+                    <p><strong>Riskinumeroiden merkitykset</strong> (todennäköisyys = pysty, seurauksen vakavuus = vaaka)</p>
+                    <table class="table table-condensed table-bordered" style="width: 40%;">
+                        <tbody> 
+                            <tr>
+                                <td></td>
+                                <td><strong>Vähäiset</strong></td>
+                                <td><strong>Haitalliset</strong></td>
+                                <td><strong>Vakavat</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Epätodennäköinen</strong></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mahdollinen</strong></td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>   
+                            <tr>
+                                <td><strong>Todennäköinen</strong></td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>                               
+                        </tbody>
+                        
+                    </table>
+
+                    <p style="font-size: 10px; font-style: italic;">
+                    1 = merkityksetön, 2 = vähäinen, 3 = kohtalainen, 4 = merkittävä, 5 = sietämätön
+                    </p>
+
+
+
+
+                </div>
+            </div>          <div id="riskiarvio_henkiset_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div> 
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="riskiarvio_henkiset" data-fordocument="riskiarvio_henkiset" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Riskiarvio (henkiset)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+            
+                <div class="contentforeditor">
+                <h5 style="text-align: right;">VAAROJEN TUNNISTAMINEN</h5>
+                    <p lang="fi-FI">
+                        <strong>HENKINEN KUORMITTUMINEN (H)</strong>
+                    </p>
+                    <p lang="fi-FI">
+                        Yritys: <span class="dynamicinsert">Nollaversio IT</span>                    </p>
+                    <p lang="fi-FI">
+                        Arvioinnin kohde: Kaikki osastot (asiakaspalvelu, myynti, tuotekehitys, koulutus, talous)
+                    </p>
+                    <p lang="fi-FI">
+                        Päiväys: <span class="dynamicinsert">18.04.2016</span>                    </p>  
+                    <p lang="fi-FI">
+
+                        Tekijät: Työsuojeluvaltuutettu <span class="dynamicinsert">Jaakko Mehiläinen</span>, työsuojeluvaravaltuutettu <span class="dynamicinsert">Maija Kimalainen</span>                                            </p>  
+
+                    <table class="table table-condensed table-bordered riskitable">
+                        <thead>
+                            <tr> 
+                                <th> Vaararyhmät </th>
+                                <th>Aiheuttaa vaaraa/haittaa</th>
+                                <th>Ei vaaraa/haittaa</th>
+                                <th>Ei tietoa</th>
+                                <th>Kommentit/tarkennukset</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td  style="font-weight: bolder;"><i>Työn sisältö</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td>H1. Toistotyö / yksipuolinen työ</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H2. Yksintyöskentely tai yötyö</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H3. Jatkuva valppaana olo</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H4. Työn pakkotahtisuus</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H5. Ihmissuhdekuormitus</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H6. Kiire</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H7. Liian kovat vaatimukset / tavoitteet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H8. Etenemismahdollisuuksien puute</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Organisointi ja toimintatavat</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                
+                                <td>H9. Työnopastus ja perehdyttäminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H10. Työnjako, tehtävänkuva ja vastuut</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H11. Työajat, ylityöt ja työvuorot</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H12. Työsuhteen epävarmuus</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H13. Työnjohdon tai organisoinnin puutteet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H14. Huono työilmapiiri</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H15. Tiedonkulun puutteet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H16. Väkivallan uhka</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H17. Häirintä tai epäasiallinen kohtelu</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H18. Sosiaalisen tuen puute</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>H19. Vaikutusmahdollisuuksien puute</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            
+
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Muita mahdollisia vaaratekijöitä?</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                             
+ 
+                             
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+
+
+                        </tbody>
+                    </table> 
+
+                    <p>
+                        <strong>Lisätietoja:</strong>
+                        <br>
+                        <br>
+                    </p>    
+ 
+                    <hr>
+                    <hr>
+                    <h5 style="text-align: right;">TOIMENPIDELOMAKE</h5>
+                    <p lang="fi-FI">
+                        <strong>HENKINEN KUORMITTUMINEN (H)</strong>
+                    </p>                    
+                    <table class="table table-bordered riskitable2">
+                        <thead>
+                            <tr> 
+                                <th>Vaaratilanteen kuvaus </th>
+                                <th>Riski (kts. taulukko)</th>
+                                <th>Toimenpiteet</th>
+                                <th>Vastuuhenkilö</th>
+                                <th>Aikataulu</th>
+                                <th>OK</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+ 
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                               
+
+                        </tbody>
+
+
+                    </table>
+                    <hr>
+                    <p><strong>Riskinumeroiden merkitykset</strong> (todennäköisyys = pysty, seurauksen vakavuus = vaaka)</p>
+                    <table class="table table-condensed table-bordered" style="width: 40%;">
+                        <tbody> 
+                            <tr>
+                                <td></td>
+                                <td><strong>Vähäiset</strong></td>
+                                <td><strong>Haitalliset</strong></td>
+                                <td><strong>Vakavat</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Epätodennäköinen</strong></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mahdollinen</strong></td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>   
+                            <tr>
+                                <td><strong>Todennäköinen</strong></td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>                               
+                        </tbody>
+                        
+                    </table>
+
+                    <p style="font-size: 10px; font-style: italic;">
+                    1 = merkityksetön, 2 = vähäinen, 3 = kohtalainen, 4 = merkittävä, 5 = sietämätön
+                    </p>
+
+
+
+
+                </div>
+            </div>          <div id="riskiarvio_tapaturmat_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div> 
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="riskiarvio_tapaturmat" data-fordocument="riskiarvio_tapaturmat" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Riskiarvio (tapaturmat)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+            
+                <div class="contentforeditor">
+                <h5 style="text-align: right;">VAAROJEN TUNNISTAMINEN</h5>
+                    <p lang="fi-FI">
+                        <strong>TAPATURMAN VAARAT (T)</strong>
+                    </p>
+                    <p lang="fi-FI">
+                        Yritys: <span class="dynamicinsert">Nollaversio IT</span>                    </p>
+                    <p lang="fi-FI">
+                        Arvioinnin kohde: Kaikki osastot (asiakaspalvelu, myynti, tuotekehitys, koulutus, talous)
+                    </p>
+                    <p lang="fi-FI">
+                        Päiväys: <span class="dynamicinsert">18.04.2016</span>                    </p>  
+                    <p lang="fi-FI">
+                        Tekijät: Työsuojeluvaltuutettu <span class="dynamicinsert">Jaakko Mehiläinen</span>, työsuojeluvaravaltuutettu <span class="dynamicinsert">Maija Kimalainen</span>                    </p>  
+
+                    <table class="table table-condensed table-bordered riskitable">
+                        <thead>
+                            <tr> 
+                                <th>Vaararyhmät</th>
+                                <th>Aiheuttaa vaaraa/haittaa</th>
+                                <th>Ei vaaraa/haittaa</th>
+                                <th>Ei tietoa</th>
+                                <th>Kommentit/tarkennukset</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Työympäristö</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td>T1. Liukastuminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>T2. Kompastuminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>T3. Henkilönostot tai putoaminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>T4. Puristuminen esineiden väliin</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>T5. Lukittuun tilaan loukkuun jääminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>T6. Sähkölaitteet ja staattinen sähkö</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>T7. Tavarankuljetukset ja muu liikenne</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>T8. Hapen puute</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>T9. Veden varaan joutuminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>   
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Esineet ja aineet</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                            
+                            <tr>
+                                
+                                <td>T10. Esineiden putoaminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>T11. Esineiden kaatuminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>T12. Esineiden / aineiden sinkoutuminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>T13. Liikkuvan esineen aiheuttama isku</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> <tr>
+                                
+                                <td>T14. Takertuminen liikkuvaan esineeseen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>T15. Viilto- ja leikkautumisvaara</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr><tr>
+                                
+                                <td>T16. Pistovaara</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>       
+                            
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Henkilön toiminta</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> <tr>
+                                
+                                <td>T17. Suojainten ja suojusten puute </td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>  <tr>
+                                
+                                <td>T18. Turvaton toiminta ja riskinotto</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> <tr>
+                                
+                                <td>T19. Poikkeavat tilanteet ja häiriöt</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> <tr>
+                                
+                                <td>T20. Päihteiden väärinkäyttö </td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Muita mahdollisia vaaratekijöitä?</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                             
+                           <tr>
+                                
+                                <td>T21. Puutteet hälytys- ja pelastusvälineissä </td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>T22. Puutteet ensiapujärjestelyissä</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                             
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+
+
+                        </tbody>
+                    </table> 
+
+                    <p>
+                        <strong>Lisätietoja:</strong>
+                        <br>
+                        <br>
+                    </p>    
+ 
+                    <hr>
+                    <hr>
+                    <h5 style="text-align: right;">TOIMENPIDELOMAKE</h5>
+                    <p lang="fi-FI">
+                        <strong>TAPATURMAN VAARAT (T)</strong>
+                    </p>                    
+                    <table class="table table-bordered riskitable2">
+                        <thead>
+                            <tr> 
+                                <th>Vaaratilanteen kuvaus </th>
+                                <th>Riski (kts. taulukko)</th>
+                                <th>Toimenpiteet</th>
+                                <th>Vastuuhenkilö</th>
+                                <th>Aikataulu</th>
+                                <th>OK</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+ 
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                               
+
+                        </tbody>
+
+
+                    </table>
+                    <hr>
+                    <p><strong>Riskinumeroiden merkitykset</strong> (todennäköisyys = pysty, seurauksen vakavuus = vaaka)</p>
+                    <table class="table table-condensed table-bordered" style="width: 40%;">
+                        <tbody> 
+                            <tr>
+                                <td></td>
+                                <td><strong>Vähäiset</strong></td>
+                                <td><strong>Haitalliset</strong></td>
+                                <td><strong>Vakavat</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Epätodennäköinen</strong></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mahdollinen</strong></td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>   
+                            <tr>
+                                <td><strong>Todennäköinen</strong></td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>                               
+                        </tbody>
+                        
+                    </table>
+
+                    <p style="font-size: 10px; font-style: italic;">
+                    1 = merkityksetön, 2 = vähäinen, 3 = kohtalainen, 4 = merkittävä, 5 = sietämätön
+                    </p>
+
+
+
+
+                </div>
+            </div>
+        <div id="riskiarvio_kemialliset_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div> 
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content tobesend" id="riskiarvio_kemialliset" data-fordocument="riskiarvio_kemialliset" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Riskiarvio (kemialliset)</div>
+                <button class="openeditor" contenteditable="false" data-isopen="0">Avaa editori</button>
+                <button class="highlightinsert" contenteditable="false" data-isactive="0">Väritä lisäykset</button>
+            
+                <div class="contentforeditor">
+                <h5 style="text-align: right;">VAAROJEN TUNNISTAMINEN</h5>
+                    <p lang="fi-FI">
+                        <strong>KEMIALLISET VAARATEKIJÄT (K)</strong>
+                        <br/>
+                        <strong>BIOLOGISET VAARATEKIJÄT (B)</strong>
+                    </p>
+                    <p lang="fi-FI">
+                        Yritys: <span class="dynamicinsert">Nollaversio IT</span>                    </p>
+                    <p lang="fi-FI">
+                        Arvioinnin kohde: Kaikki osastot (asiakaspalvelu, myynti, tuotekehitys, koulutus, talous)
+                    </p>
+                    <p lang="fi-FI">
+                        Päiväys: <span class="dynamicinsert">18.04.2016</span>                    </p>  
+                    <p lang="fi-FI">
+
+                        Tekijät: Työsuojeluvaltuutettu <span class="dynamicinsert">Jaakko Mehiläinen</span>, työsuojeluvaravaltuutettu <span class="dynamicinsert">Maija Kimalainen</span>                                            </p>  
+
+                    <table class="table table-condensed table-bordered riskitable">
+                        <thead>
+                            <tr> 
+                                <th> Vaararyhmät </th>
+                                <th>Aiheuttaa vaaraa/haittaa</th>
+                                <th>Ei vaaraa/haittaa</th>
+                                <th>Ei tietoa</th>
+                                <th>Kommentit/tarkennukset</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Työssä esiintyvät altisteet</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td>K1. Syöpävaaralliset kemikaalit <sup>1</sup></td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>K3. Allergiaa aiheuttavat kemikaalit <sup>2</sup></td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>K4. Palo- ja räjähdysvaaralliset kemikaalit</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>K5. Pölyt ja kuidut</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>K6. Kaasut</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>K7. Höyryt, huurut, savut</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                             <tr>
+                                <td style="font-weight: bolder;"><i>Kemikaalien käyttö</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                            
+                            <tr>
+                                
+                                <td>K8. Kemikaalien pakkausmerkinnät</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>K9. Käyttöturvallisuustiedotteet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>K10. Kemikaalien käyttötavat</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>K11. Kemikaalien varastointi</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>K12. Kemikaalien käytöstä poisto</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+
+                            </tr> 
+                            <tr>
+                                
+                                <td>K13. Suojainten kunto ja käyttö</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td>K14. Ensiapuvälineiden kunto ja käyttö</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Tulipalo- ja räjähdysvaara</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td>K15. Sähkölaitteiden kunto ja käyttö</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td>K16. Tulityöluvat ja tulitöiden tekeminen</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td>K17. Sammutusvälineet ja niiden merkinnät</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td>K18. Poistumistiet ja niiden merkinnät</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Biologiset vaaratekijät</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                             
+                            <tr>
+                                
+                                <td>B1. Tartuntavaara, esim. bakteerit/virukset</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td>B2. Sienet, esim. homeet</td>
+                                <td>_</td>
+                                <td>X</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder;"><i>Muita mahdollisia vaaratekijöitä</i></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>                               
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+                            <tr>
+                                
+                                <td></td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td>_</td>
+                                <td></td>
+                            </tr> 
+
+
+                        </tbody>
+                    </table> 
+
+                    <p>
+                        <strong>Lisätietoja:</strong>
+                        <br>
+                        <br>
+                    </p>    
+                    <hr>
+                    <p style="font-size: 9px; font-style: italic;">
+                    1) Vaaralausekkeet R45 ja R49<br>
+                    2) Vaaralausekkeet R42 ja R 43  (Löytyvät kemikaalien pakkausmerkinnöistä ja käyttöturvallisuustiedotteista.)
+                    </p>
+                    <hr>
+                    <hr>
+                    <h5 style="text-align: right;">TOIMENPIDELOMAKE</h5>
+                    <p lang="fi-FI">
+                        <strong>KEMIALLISET VAARATEKIJÄT (K)</strong>
+                        <br/>
+                        <strong>BIOLOGISET VAARATEKIJÄT (B)</strong>
+                    </p>                    
+                    <table class="table table-bordered riskitable2">
+                        <thead>
+                            <tr> 
+                                <th>Vaaratilanteen kuvaus </th>
+                                <th>Riski</th>
+                                <th>Toimenpiteet</th>
+                                <th>Vastuuhenkilö</th>
+                                <th>Aikataulu</th>
+                                <th>OK</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+ 
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>  
+                               
+
+                        </tbody>
+
+
+                    </table>
+
+                    <hr>
+                    <p><strong>Riskinumeroiden merkitykset</strong> (todennäköisyys = pysty, seurauksen vakavuus = vaaka)</p>
+                    <table class="table table-condensed table-bordered" style="width: 40%;">
+                        <tbody> 
+                            <tr>
+                                <td></td>
+                                <td><strong>Vähäiset</strong></td>
+                                <td><strong>Haitalliset</strong></td>
+                                <td><strong>Vakavat</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Epätodennäköinen</strong></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mahdollinen</strong></td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                            </tr>   
+                            <tr>
+                                <td><strong>Todennäköinen</strong></td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>                               
+                        </tbody>
+                        
+                    </table>
+
+                    <p style="font-size: 10px; font-style: italic;">
+                    1 = merkityksetön, 2 = vähäinen, 3 = kohtalainen, 4 = merkittävä, 5 = sietämätön
+                    </p>
+
+
+                </div>
+            </div> 
+
+        <hr>
+        <div id="yleiset_scroll" style="visibility: hidden; height: 32px; width: 100%;"></div> 
+        <!--- NEXT DOCUMENT STARTS -->
+
+            <div class="content" id="yleiset" data-fordocument="yleiset" style="width: 90%; color: #222; background-color: white;">
+                <div class="documentheader" contenteditable="false">Yleiset dokumentit</div>
+                	<h4>"Yleiset"-osio sisältää ylimääräistä tilpehööriä, joka on kaikille yrityksille sama. Täten niitä ei näytetä muokkausnäkymässä (editori) lainkaan.</h4>
+                	<p><strong>HUOM!</strong> Yleiset dokumentit lisätään suoraan Sinua varten luotavaan dokumenttipakettiin. Sinun <u>ei tarvitse</u> siis erikseen ladata niitä alta. </p>
+            
+                <div class="contentforeditor">
+
+                	<ul class="list-group">
+					  <li class="list-group-item"><img width="32" height="32" src="http://localhost/lyyti/lyyti/public/images/pdf_icon.png"><a href="http://localhost/lyyti/lyyti/public/pdfs/turvallisuusohjeet.pdf">Turvallisuusohjeet</a></li>
+					  <li class="list-group-item"><img width="32" height="32" src="http://localhost/lyyti/lyyti/public/images/pdf_icon.png"><a href="http://localhost/lyyti/lyyti/public/pdfs/tyoturvallisuuslaki.pdf">Työturvallisuuslaki (738/2002)</a></li>
+					</ul>
+
+
+
+                </div>
+
+            </div>        <hr>
+
+
+    
+    
+    
+
+
+        </div>
+
+    </body>
+</html>
