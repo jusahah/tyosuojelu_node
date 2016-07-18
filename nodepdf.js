@@ -3,6 +3,7 @@ var pdf = require('html-pdf');
 var archiver = require('archiver');
 var Promise = require("bluebird");
 var Inert = require('inert');
+var ncp = require('ncp').ncp; // For copying pdfs
 
 var html = fs.readFileSync('./testibig.html', 'utf8');
 
@@ -88,6 +89,19 @@ server.start(function(err) {
     console.log('Server running at:', server.info.uri);
 });
 
+function copyStaticPDFs(folderName) {
+	return new Promise(function(resolve, reject) {
+		var source = './staticpdfs';
+		var destination = './tempfiles/' + folderName;
+		ncp(source, destination, function (err) {
+		 if (err) {
+		   return reject(err);
+		 }
+		 return resolve();
+		});
+	});
+}
+
 
 
 function createFromHTMLs(email, htmls, folderName) {
@@ -98,6 +112,10 @@ function createFromHTMLs(email, htmls, folderName) {
 		console.log(htmlObj.name);
 		return createPDF(folderName, htmlObj.name, htmlObj.html);
 	});
+
+	var copyProm = copyStaticPDFs(folderName);
+
+	proms.push(copyProm);
 
 	console.log("PROMS: " + proms.length);
 	var readyToZip = Promise.all(proms);
